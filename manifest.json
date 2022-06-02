@@ -1,6 +1,6 @@
 {
     "name": "Thanos Tabs", 
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "Snap away half of your tabs!",
     "manifest_version": 3,
     "background": {

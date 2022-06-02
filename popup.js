@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
     // insert quote in to #quote
     document.getElementById("quote").innerHTML = quotes[rnd]
     chrome.runtime.sendMessage({ msg: "snap" }, (resp) => {
-        console.log(resp)
+        console.log("snap resp: ", resp)
     })
 })
 

@@ -26,21 +26,26 @@ function shuffle(array) {
 }
 
 chrome.runtime.onInstalled.addListener(() => {
-  chrome.action.onClicked.addListener(snapAwayTabs)
-  chrome.commands.onCommand.addListener((command) => {
-    if (command === "snapTabs") {
-      snapAwayTabs()
-      // TODO: uncomment once action.openPopup issue is fixed
-      // // hopefully will set the popup, show it, and then allow for regular clicking to happen
-      // await chrome.action.openPopup({}) // docs say works in chrome 99+, however there are multiple bug reports saying otherwise (and from experience it does not work)
-    }
-  })
-  chrome.runtime.onMessage.addListener(
-    function (req, from, resp) {
-      if (req.msg === "snap") {
-        snapAwayTabs()
-        resp({farewell: "ok"})
-      }
-    }
-  )
+  console.log("installed")
 })
+
+console.log("register command listener")
+chrome.commands.onCommand.addListener((command) => {
+  if (command === "snapTabs") {
+    snapAwayTabs()
+    // TODO: uncomment once action.openPopup issue is fixed
+    // // hopefully will set the popup, show it, and then allow for regular clicking to happen
+    // await chrome.action.openPopup({}) // docs say works in chrome 99+, however there are multiple bug reports saying otherwise (and from experience it does not work)
+  }
+})
+
+console.log("register message listener")
+chrome.runtime.onMessage.addListener(
+  function (req, from, resp) {
+    console.log("from ", from)
+    if (req.msg === "snap") {
+      snapAwayTabs()
+      resp({farewell: "snapped"})
+    } 
+  }
+)
