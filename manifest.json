@@ -1,0 +1,36 @@
+{
+    "name": "Thanos Tabs", 
+    "version": "0.1.0",
+    "description": "Snap away half of your tabs!",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "tabs"
+    ],
+    "action": {
+        "default_title": "I am inevitable",
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icons/gauntlet16.png",
+            "32": "icons/gauntlet32.png",
+            "48": "icons/gauntlet48.png",
+            "128": "icons/gauntlet128.png"
+        }
+    },
+    "commands": {
+        "snapTabs": {
+            "suggested_key": {
+                "default": "Alt+Shift+S"
+            },
+            "description": "Snap away half of your tabs!"
+        }
+    },
+    "icons": {
+        "16": "icons/gauntlet16.png",
+        "32": "icons/gauntlet32.png",
+        "48": "icons/gauntlet48.png",
+        "128": "icons/gauntlet128.png"
+    }
+}

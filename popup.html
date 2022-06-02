@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            p {
+                color: purple;
+            }
+            #popup {
+                width: 300px;
+                padding: 3px;
+                margin: 2px;
+                display: flex;
+            }
+            #left {
+                width: 100px;
+                flex: 1;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            #right {
+                width: 200px;
+                flex: 1;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="popup">
+            <div id="left">
+                <img src="icons/gauntlet128.png" alt="">
+            </div>
+            <div id="right">
+                <img src="https://static.wikia.nocookie.net/ironman/images/8/83/Infinity-War-Decimation-Thanos-Scientific-Real-Life-Effects.jpg/revision/latest?cb=20200423110335" alt="" id="thanos" width="200px">
+                <p id="quote"></p>
+            </div>
+        </div>
+        <script src="popup.js"></script>
+    </body>
+</html>
