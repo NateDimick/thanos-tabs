@@ -21,8 +21,10 @@ window.addEventListener("DOMContentLoaded", (event) => {
     const rnd = Math.floor(Math.random() * quotes.length)
     // insert quote in to #quote
     document.getElementById("quote").innerHTML = quotes[rnd]
-    chrome.runtime.sendMessage({ msg: "snap" }, (resp) => {
-        console.log("snap resp: ", resp)
-    })
+    setTimeout(() => {
+        chrome.runtime.sendMessage({ msg: "snap" }, (resp) => {
+            console.log("snap resp: ", resp)
+        })
+    }, 300)
 })
 

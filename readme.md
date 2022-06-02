@@ -1,6 +1,6 @@
 # Thanos Tabs
 
-Press Alt + Shift + S ~~or click the badge~~ to destroy half your tabs. (rounded down, must have at least 2 tabs to destroy a tab)
+Press Alt + Shift + S or click the badge to destroy half your tabs. (rounded down, must have at least 2 tabs to destroy a tab, will not destroy your current tab)
 
 ## Critical Bug
 

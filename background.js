@@ -1,5 +1,5 @@
 function snapAwayTabs() {
-  chrome.tabs.query({currentWindow: true}, snapTabsCallback)
+  chrome.tabs.query({currentWindow: true, active: false}, snapTabsCallback)
 }
 
 function snapTabsCallback(tabs) {
