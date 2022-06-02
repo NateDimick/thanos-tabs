@@ -2,11 +2,11 @@ function snapAwayTabs() {
   chrome.tabs.query({currentWindow: true}, snapTabsCallback)
 }
 
-async function snapTabsCallback(tabs) {
+function snapTabsCallback(tabs) {
   console.log("I am inevitable")
   const tabIds = tabs.map(t => t.id)
   shuffle(tabIds)
-  await chrome.tabs.remove(tabIds.slice(Math.ceil(tabIds.length / 2)))
+  chrome.tabs.remove(tabIds.slice(Math.ceil(tabIds.length / 2)))
 }
 
 // shamelessly copied from SO: 
