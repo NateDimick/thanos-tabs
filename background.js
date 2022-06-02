@@ -4,18 +4,9 @@ function snapAwayTabs() {
 
 async function snapTabsCallback(tabs) {
   console.log("I am inevitable")
-  console.log(tabs)
   const tabIds = tabs.map(t => t.id)
-  console.log(tabIds)
   shuffle(tabIds)
-  console.log(tabIds)
   await chrome.tabs.remove(tabIds.slice(Math.ceil(tabIds.length / 2)))
-
-  // TODO: uncomment once action.openPopup issue is fixed
-  // // hopefully will set the popup, show it, and then allow for regular clicking to happen
-  // await chrome.action.setPopup({popup: "popup.html"})
-  // await chrome.action.openPopup({}) // docs say works in chrome 99+, however there are multiple bug reports saying otherwise (and from experiente it does not work)
-  // chrome.action.setPopup({popup: ""})
 }
 
 // shamelessly copied from SO: 
@@ -35,11 +26,21 @@ function shuffle(array) {
 }
 
 chrome.runtime.onInstalled.addListener(() => {
-  console.log(/Chrome\/([0-9.]+)/.exec(navigator.userAgent)[1]) // chrome version, also stolen from SO
   chrome.action.onClicked.addListener(snapAwayTabs)
   chrome.commands.onCommand.addListener((command) => {
     if (command === "snapTabs") {
       snapAwayTabs()
+      // TODO: uncomment once action.openPopup issue is fixed
+      // // hopefully will set the popup, show it, and then allow for regular clicking to happen
+      // await chrome.action.openPopup({}) // docs say works in chrome 99+, however there are multiple bug reports saying otherwise (and from experience it does not work)
     }
   })
+  chrome.runtime.onMessage.addListener(
+    function (req, from, resp) {
+      if (req.msg === "snap") {
+        snapAwayTabs()
+        resp({farewell: "ok"})
+      }
+    }
+  )
 })

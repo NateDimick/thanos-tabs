@@ -1,6 +1,6 @@
 {
     "name": "Thanos Tabs", 
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "Snap away half of your tabs!",
     "manifest_version": 3,
     "background": {
@@ -22,7 +22,10 @@
     "commands": {
         "snapTabs": {
             "suggested_key": {
-                "default": "Alt+Shift+S"
+                "windows": "Alt+Shift+S",
+                "mac": "Alt+Shift+S",
+                "linux": "Alt+Shift+S",
+                "chromeos": "Alt+Shift+S"
             },
             "description": "Snap away half of your tabs!"
         }

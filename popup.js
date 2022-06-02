@@ -17,6 +17,10 @@ const quotes = [
     "This day extracts a heavy toll"
 ]
 // generate random number
-const rnd = Math.floor(Math.random() * quotes.length)
-// insert quote in to #quote
-document.getElementById("quote").innerHTML = quotes[rnd]
+window.addEventListener("DOMContentLoaded", (event) => {
+    const rnd = Math.floor(Math.random() * quotes.length)
+    // insert quote in to #quote
+    document.getElementById("quote").innerHTML = quotes[rnd]
+    chrome.runtime.sendMessage({ msg: "snap" }, (resp) => {console.log(resp)})
+})
+
