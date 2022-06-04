@@ -6,7 +6,8 @@ function snapTabsCallback(tabs) {
   console.log("I am inevitable")
   const tabIds = tabs.map(t => t.id)
   shuffle(tabIds)
-  chrome.tabs.remove(tabIds.slice(Math.ceil(tabIds.length / 2)))
+  const cutIndex = tabs.length === 1 ? 0 : Math.floor(tabIds.length / 2)
+  chrome.tabs.remove(tabIds.slice(cutIndex))
 }
 
 // shamelessly copied from SO: 
